@@ -6,7 +6,7 @@
 
 Запутитсе бэкэнд.
 
-Откройте проектный пример фронтэнда <a href="https://github.com/BorisPlus/otus_webpython_019_backend/blob/master/project/examples/examples.html" target="_blank">examples.html</a>.
+Откройте проектный пример фронтэнда <a href="https://github.com/BorisPlus/otus_webpython_019_frontend/blob/master/project/examples/examples.html" target="_blank">examples.html</a>.
 
 Поведение идентично изначальному, см. GIF-анимацию:
 
@@ -20,11 +20,11 @@
 
 Подробная информация
 
-<img src='README.files/img/animate/info.png' title='info.png'>
+<img src='README.files/img/screenshots/info.png' title='info.png'>
 
 ## Авторы
 
-* **BorisPlus** - [https://github.com/BorisPlus/otus_webpython_018](https://github.com/BorisPlus/otus_webpython_018)
+* **BorisPlus** - [https://github.com/BorisPlus/otus_webpython_019_frontend](https://github.com/BorisPlus/otus_webpython_018)
 
 ## Лицензия
 
