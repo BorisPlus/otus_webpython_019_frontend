@@ -24,7 +24,7 @@
 
 ## Авторы
 
-* **BorisPlus** - [https://github.com/BorisPlus/otus_webpython_019_frontend](https://github.com/BorisPlus/otus_webpython_018)
+* **BorisPlus** - [https://github.com/BorisPlus/otus_webpython_019_frontend](https://github.com/BorisPlus/otus_webpython_019_frontend)
 
 ## Лицензия
 
