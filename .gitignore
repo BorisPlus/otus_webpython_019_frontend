@@ -1,0 +1,9 @@
+# My gitignore
+gitignore/
+
+# Webpack ignore
+project/dist/
+project/node_modules/
+
+# PyCharm
+.idea/

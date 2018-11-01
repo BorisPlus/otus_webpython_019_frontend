@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bug Report - Examples</title>
+    <style>
+        .example {
+            border-style: solid;
+            border-width: 1px;
+            text-align: center;
+        }
+        .thanks {
+            color: green;
+            background: #000;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Примеры</h1>
+
+<h2><a name="n_1"></a>Пример №1 (базовая реализация)</h2>
+
+<p>
+    Имеются контейнеры "руководства" и "кнопки". После подтверждения пользователем своих действий (Js-prompt) появится контейнер "благодарности", а контейнеры "руководства" и "кнопки" исчезнут. Через 3 сек. всё вернется в исходное состояние: контейнер "благодарности" скроется, контейнеры "руководства" и "кнопки" появятся.
+    <br>
+    <br>
+    При подключении модуля в теге <i>< script src="bug_report.js" >< / script ></i> произойдет привязка стандартного объекта BugReport к контейнерам, имеющим шаблонные "id": <i>"bug_report_thanks"</i>, <i>"bug_report_instruction"</i>, <i>"bug_report_button"</i>.
+</p>
+
+<div class="example">
+    <div id="bug_report_thanks" style="visibility:hidden" class="thanks">
+        Благодарю Вас!
+    </div>
+    <div id="bug_report_instruction">
+        Если нашли ошибку, выделите текст и нажмите на кнопку.
+    </div>
+    <button id="bug_report_button">
+        Я нашел ошибку
+    </button>
+</div>
+
+
+<h2>Пример №2</h2>
+
+<p>
+    Имеется контейнер "кнопки", а контейнер "руководства" <b><u>отсутствует</u></b> (специально). После подтверждения пользователем своих действий появится контейнер "благодарности", а контейнер "кнопки" исчезнет. Через 3 сек. всё вернется в исходное состояние: контейнер "Благодарности" скроется, контейнер "кнопки" появится.
+    <br>
+    <br>
+    Привязка объекта BugReport происходит внутри <b><u>упакованного</u> пользовательского</b> JS-файла.
+</p>
+
+<div class="example">
+    <div id="example_bug_report_thanks" style="visibility:hidden;" class="thanks">
+        Дзякуй Вам!
+    </div>
+    <div>
+        Калі знайшлі памылку, вылучыце тэкст і націсніце на кнопку.
+    </div>
+    <button id="example_bug_report_button">
+        Я знайшоў памылку
+    </button>
+</div>
+
+
+<h2>Пример №3.</h2>
+
+<p>
+    Совпадает с <a href="#n_1">Примером №1</a>. Привязка объекта BugReport происходит внутри <b><u>упакованного</u> в модуль</b> JS-файла.
+</p>
+
+<div class="example">
+    <div id="my_bug_report_thanks" style="visibility:hidden;" class="thanks">
+        Thank you!
+    </div>
+    <div id="my_bug_report_instruction">
+        If you find an error, select the text and click the button.
+    </div>
+    <button id="my_bug_report_button">
+        I find error
+    </button>
+</div>
+
+<h2>Пример №4 (базовая реализация c использованием модуля)</h2>
+
+<p>
+    Совпадает с <a href="#n_1">Примером №1</a>. Разве что, определение объекта BugReport происходит уже внутри
+    <b><u>стороннего</u></b> JS-файла, стороннего с точки зрения всего остального, упакованного в модуль PackedBugReport.
+</p>
+
+<div class="example">
+    <div id="module_usage_bug_report_thanks" style="visibility:hidden" class="thanks">
+        Благодарю Вас!
+    </div>
+    <div id="module_usage_bug_report_instruction">
+        Если нашли ошибку, выделите текст и нажмите на кнопку.
+    </div>
+    <button id="module_usage_bug_report_button">
+        Я нашел ошибку
+    </button>
+</div>
+
+<!-- как сказала Анна -->
+
+<script src="../dist/bug_report.bundle.js"></script>
+<script src="./module_usage.bug_report.js"></script>
+
+</body>
+</html>
