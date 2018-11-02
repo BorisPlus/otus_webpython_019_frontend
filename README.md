@@ -6,6 +6,15 @@
 * идея пректа [BugReport](https://github.com/BorisPlus/BugReport)
 * развитие [Webpacked BugReport](https://github.com/BorisPlus/otus_webpython_018)
 
+### Варианты сборок
+
+```bash
+npm start
+npm run prod
+npm run dev
+npm run debug
+```
+
 ### Проверка работоспособности
 
 Запутитсе бэкэнд.
