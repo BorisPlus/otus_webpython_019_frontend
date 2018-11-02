@@ -1,5 +1,6 @@
 # My gitignore
 gitignore/
+NO.**
 
 # Webpack ignore
 project/dist/
@@ -7,3 +8,5 @@ project/node_modules/
 
 # PyCharm
 .idea/
+
+package-lock.json

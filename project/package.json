@@ -1,26 +1,21 @@
 {
-  "name": "project",
-  "version": "1.0.0",
-  "description": "Project of simple bug report library on JS",
-  "private": true,
   "scripts": {
-    "hello": "echo \"Hello, I am package.json\"",
-    "http:dev": "webpack-dev-server",
-    "build:prod": "webpack",
-    "build:dev": "webpack --watch",
-    "tests": "webpack --config webpack.config.tests.js"
+    "start": "webpack-dev-server",
+    "prod": "webpack --config webpack.production.config.js",
+    "dev": "webpack --config webpack.development.config.js",
+    "debug": "webpack --config webpack.full_usage_test.config.js"
   },
-  "keywords": [],
   "author": "BorisPlus",
-  "license": "ISC",
   "devDependencies": {
-    "jquery": "^3.3.1",
-    "path": "^0.12.7",
-    "webpack": "^4.23.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "jquery": "3.3.1",
+    "path": "0.12.7",
+    "webpack": "4.23.1",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-server": "3.1.10",
+    "webpack-merge": "4.1.4"
   },
   "dependencies": {
-    "jquery-ui-dist": "^1.12.1"
+    "jquery": "3.3.1",
+    "jquery-ui-dist": "1.12.1"
   }
 }

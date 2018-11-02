@@ -1,9 +1,4 @@
 'use strict;'
-
-let _version = '1.0.0';
-
-function get_version(){
-    return _version;
+export default function getVersion(){
+    return '2018.11.02';
 }
-
-export {get_version}

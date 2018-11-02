@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bug Report - Examples</title>
+    <style>
+        .example {
+            border-style: solid;
+            border-width: 1px;
+            text-align: center;
+        }
+        .thanks {
+            color: green;
+            background: #000;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Пример (базовая реализация)</h1>
+
+<p>
+    Имеются контейнеры "руководства" и "кнопки". После подтверждения пользователем своих действий (Js-prompt) появится контейнер "благодарности", а контейнеры "руководства" и "кнопки" исчезнут. Через 3 сек. всё вернется в исходное состояние: контейнер "благодарности" скроется, контейнеры "руководства" и "кнопки" появятся.
+    <br>
+    <br>
+    При подключении модуля в теге <i>< script src="bug_report.js" >< / script ></i> произойдет привязка стандартного объекта BugReport к контейнерам, имеющим шаблонные "id": <i>"bug_report_thanks"</i>, <i>"bug_report_instruction"</i>, <i>"bug_report_button"</i>.
+</p>
+
+<div class="example">
+    <div id="bug_report_thanks" style="visibility:hidden" class="thanks">
+        Благодарю Вас!
+    </div>
+    <div id="bug_report_instruction">
+        Если нашли ошибку, выделите текст и нажмите на кнопку.
+    </div>
+    <button id="bug_report_button">
+        Я нашел ошибку
+    </button>
+</div>
+
+<!-- как сказала Анна -->
+
+<script src="../../dist/packed.bug_report.js"></script>
+
+</body>
+</html>

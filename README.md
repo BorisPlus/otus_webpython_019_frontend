@@ -2,6 +2,10 @@
 
 Фронтэнд для [быстро скомпанованного бэкэнда](https://github.com/BorisPlus/otus_webpython_019_backend).
 
+Предшествующее:
+* идея пректа [BugReport](https://github.com/BorisPlus/BugReport)
+* развитие [Webpacked BugReport](https://github.com/BorisPlus/otus_webpython_018)
+
 ### Проверка работоспособности
 
 Запутитсе бэкэнд.
