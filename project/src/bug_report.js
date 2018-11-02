@@ -16,11 +16,12 @@ export default class BugReport {
     getButtonId() { return this._getIdFromTemplate(buttonIdTemplate); }
     getThanksId() { return this._getIdFromTemplate(thanksIdTemplate); }
 
-    constructor(name, promptMessage, backendServer, backendRoute) {
+    constructor(name, promptMessage, backendServer, backendRoute, ajaxErrorMessage) {
         this.name = name || "";
         this.promptMessage = promptMessage || "Оставте комментарий и контакт для связи с Вами, если хотите.";
         this.backendServer = backendServer || "http://127.0.0.1:5000";
         this.backendRoute = backendRoute || "/bug_report/create";
+        this.ajaxErrorMessage = ajaxErrorMessage || "При отправке сообщения возникли ошибки";
         // auto binding
         this._bind();
     }
@@ -129,8 +130,9 @@ export default class BugReport {
         */
 
         /* JQUERY AJAX POST */
-        /* WORK EVERY WERE */
+        /* WORK EVERYWHERE */
         /**/
+        let that = this;
         $.ajax({
             url: this._getBackendServerRoute(),
             type: "POST",
@@ -142,8 +144,10 @@ export default class BugReport {
                 honestMarker: honestMarker}
             ),
             // success: function(response) { alert('Готово'); },
-            // error: function(error) { alert("При отправке сообщения возникли ошибки:\n" + error); }
-            error: function(error) { alert("При отправке сообщения возникли ошибки"); }
+            // CROSS-DOMAIN ajax NOT CATCH textStatus AND errorThrown, IT's SO BAD, SO BAD
+            error: function(XMLHttpRequest, textStatus, errorThrown) { if (honestMarker) {
+                alert(`${that.ajaxErrorMessage} ${ errorThrown ? `(${textStatus}: ${errorThrown})` :''}`)
+            }}
         });
 
     }
