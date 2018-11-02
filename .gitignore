@@ -9,4 +9,4 @@ project/node_modules/
 # PyCharm
 .idea/
 
-package-lock.json
+project/package-lock.json
