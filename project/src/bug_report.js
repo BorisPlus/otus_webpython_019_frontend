@@ -9,7 +9,7 @@ const thanksIdTemplate = "bug_report_thanks";
 export default class BugReport {
 
     // make names of containers by templates
-//    _getIdFromTemplate(template) { return this.name ? `${this.name}_${template}` : template;}
+    // _getIdFromTemplate(template) { return this.name ? `${this.name}_${template}` : template;}
     _getIdFromTemplate(template) { return this.name ? [this.name, template].join('_') : template;}
     //
     getInstructionId() { return this._getIdFromTemplate(instructionIdTemplate); }
