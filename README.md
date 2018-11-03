@@ -2,9 +2,10 @@
 
 Фронтэнд для [быстро скомпанованного бэкэнда](https://github.com/BorisPlus/otus_webpython_019_backend).
 
-Предшествующее:
-* идея пректа [BugReport](https://github.com/BorisPlus/BugReport)
+Этапы:
+* идея пректа [BugReport (NATIVE JS)](https://github.com/BorisPlus/BugReport_NATIVE_JS)
 * развитие [Webpacked BugReport](https://github.com/BorisPlus/otus_webpython_018)
+* после рефакторинга [BugReport](https://github.com/BorisPlus/otus_webpython_019_frontend)
 
 ### Варианты сборок
 
@@ -21,11 +22,11 @@ npm run debug
 
 Откройте проектный пример фронтэнда <a href="https://github.com/BorisPlus/otus_webpython_019_frontend/blob/master/project/examples/examples.html" target="_blank">examples.html</a>.
 
-Поведение идентично изначальному, см. GIF-анимацию:
+Поведение идентично изначальному.
 
-<kbd><img src='README.files/img/animate/bug_report.gif' title='bug_report.gif'></kbd>
+Но если бэкэнд не отработает, то появится JS-ALERT.
 
-Если бэкэнд не отработает, то появится JS-ALERT.
+<img src='README.files/img/screenshots/ajax_error_alert.png' title='ajax_error_alert.png'>
 
 На бэкэнде появятся записи.
 
