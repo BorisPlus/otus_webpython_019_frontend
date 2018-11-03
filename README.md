@@ -20,7 +20,7 @@ npm run debug
 
 Запутитсе бэкэнд.
 
-Откройте проектный пример фронтэнда <a href="https://github.com/BorisPlus/otus_webpython_019_frontend/blob/master/project/examples/examples.html" target="_blank">examples.html</a>.
+Откройте проектный пример фронтэнда <a href="https://github.com/BorisPlus/otus_webpython_019_frontend/blob/master/project/examples/base_example/base_example.html" target="_blank">base_example.html</a>.
 
 Поведение идентично изначальному.
 
