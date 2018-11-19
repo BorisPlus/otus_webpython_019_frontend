@@ -10,6 +10,10 @@
 ### Варианты сборок
 
 ```bash
+cd project 
+```
+
+```bash
 npm start
 npm run prod
 npm run dev
