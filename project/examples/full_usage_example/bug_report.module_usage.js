@@ -1,2 +1,4 @@
 //
-let module_usage_bug_report = new PackedBugReport.BugReport('module_usage');
+let params = new PackedBugReport.BugReportParams();
+params.name = 'module_usage';
+let usage = new PackedBugReport.BugReport(params);

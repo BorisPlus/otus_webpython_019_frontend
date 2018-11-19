@@ -6,22 +6,31 @@ const instructionIdTemplate = "bug_report_instruction";
 const buttonIdTemplate = "bug_report_button";
 const thanksIdTemplate = "bug_report_thanks";
 
-export default class BugReport {
+class BugReportParams {
+    constructor(params) {
+        this.name = "";
+        this.promptMessage = "Оставте комментарий и контакт для связи с Вами, если хотите.";
+        this.backendServer =  "http://127.0.0.1:5000";
+        this.backendRoute =  "/bug_report/create";
+        this.ajaxErrorMessage =  "При отправке сообщения возникли ошибки.";
+    }
+};
+
+class BugReport {
 
     // make names of containers by templates
-    // _getIdFromTemplate(template) { return this.name ? `${this.name}_${template}` : template;}
     _getIdFromTemplate(template) { return this.name ? [this.name, template].join('_') : template;}
     //
     getInstructionId() { return this._getIdFromTemplate(instructionIdTemplate); }
     getButtonId() { return this._getIdFromTemplate(buttonIdTemplate); }
     getThanksId() { return this._getIdFromTemplate(thanksIdTemplate); }
 
-    constructor(name, promptMessage, backendServer, backendRoute, ajaxErrorMessage) {
-        this.name = name || "";
-        this.promptMessage = promptMessage || "Оставте комментарий и контакт для связи с Вами, если хотите.";
-        this.backendServer = backendServer || "http://127.0.0.1:5000";
-        this.backendRoute = backendRoute || "/bug_report/create";
-        this.ajaxErrorMessage = ajaxErrorMessage || "При отправке сообщения возникли ошибки";
+    constructor(bugReportParams) {
+        this.name = bugReportParams.name;
+        this.promptMessage =  bugReportParams.promptMessage;
+        this.backendServer =  bugReportParams.backendServer;
+        this.backendRoute =  bugReportParams.backendRoute;
+        this.ajaxErrorMessage =  bugReportParams.ajaxErrorMessage;
         // auto binding
         this._bind();
     }
@@ -34,8 +43,6 @@ export default class BugReport {
     }
 
     _messageAtPromptWindow(where, what) {
-        // return where+'\n\n'+what+'\n\n'+; // WORK FINE
-        // return `${where}\n\n${what}\n\n${this.promptMessage}`; // WORK FINE
         return [where, what, this.promptMessage].join('\n\n')
     }
 
@@ -90,20 +97,28 @@ export default class BugReport {
 
     sendReport(href, selectedText, userText, honestMarker){
         /* NATIVE HTTP AJAX POST */
-        /*
+        /* */
         var xhr = new XMLHttpRequest();
         xhr.open("POST", this._getBackendServerRoute(), true);
         xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4) {
+                if (xhr.status == '200') { return; }
+                if (!honestMarker) return;
+                alert(this.ajaxErrorMessage + xhr.statusText);
+            }
+        };
+
         xhr.send(JSON.stringify({
             href: href,
             selectedText: selectedText,
             userText: userText,
             honestMarker: honestMarker,
         }));
-        if (xhr.status !== '200') alert("При отправке сообщения возникли ошибки");
-        */
 
-        /* SOME BROWSERS LIKE FF NOT WORK */
+
+        /* SOME BROWSERS LIKE FF NOT WORK WITH FETCH */
         /*
         fetch(
             this._getBackendServerRoute(),
@@ -131,7 +146,7 @@ export default class BugReport {
 
         /* JQUERY AJAX POST */
         /* WORK EVERYWHERE */
-        /**/
+        /*
         let that = this;
         $.ajax({
             url: this._getBackendServerRoute(),
@@ -149,9 +164,12 @@ export default class BugReport {
                 alert(`${that.ajaxErrorMessage} ${ errorThrown ? `(${textStatus}: ${errorThrown})` :''}`)
             }}
         });
+        */
 
     }
 };
 
 // default BugReport object
-let bugReport = new BugReport();
+let bugReport = new BugReport(new BugReportParams());
+
+export { BugReport, BugReportParams }
